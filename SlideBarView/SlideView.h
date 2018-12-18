@@ -20,6 +20,12 @@
 @end
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef NS_ENUM(NSUInteger, SlideStyle) {
+    SlideStyle_Normal,
+    SlideStyle_Suit,
+};
+
 @interface SlideView : UIView
 
 @property (nonatomic,assign) CGFloat item_w;//条目宽度
@@ -28,9 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) BOOL midSepShow;//中间分割线是否显示
 @property (nonatomic,assign) CGFloat midSepH;//中间分割线的上下距离
+@property (nonatomic,strong) UIColor *midSepColor;//中间分隔线e颜色
 
 
-- (instancetype)initWithItems:(NSMutableArray *)items;
+
+- (instancetype)initWithItems:(NSMutableArray *)items type:(SlideStyle)type;
 
 
 @end

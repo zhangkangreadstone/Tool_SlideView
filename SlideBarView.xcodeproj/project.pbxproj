@@ -15,6 +15,9 @@
 		553E28A321C7746F00B46A20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28A221C7746F00B46A20 /* main.m */; };
 		553E28AD21C7746F00B46A20 /* SlideBarViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28AC21C7746F00B46A20 /* SlideBarViewTests.m */; };
 		553E28B921C7766C00B46A20 /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28B821C7766C00B46A20 /* SlideView.m */; };
+		553E28CF21C9219F00B46A20 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28CE21C9219F00B46A20 /* UIColor+Hex.m */; };
+		553E28D221C9229D00B46A20 /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28D121C9229C00B46A20 /* UIView+Common.m */; };
+		553E28D521C9281500B46A20 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 553E28D421C9281500B46A20 /* NSString+Size.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		553E28AE21C7746F00B46A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553E28B721C7766C00B46A20 /* SlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlideView.h; sourceTree = "<group>"; };
 		553E28B821C7766C00B46A20 /* SlideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideView.m; sourceTree = "<group>"; };
+		553E28CD21C9219F00B46A20 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		553E28CE21C9219F00B46A20 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		553E28D021C9229C00B46A20 /* UIView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Common.h"; sourceTree = "<group>"; };
+		553E28D121C9229C00B46A20 /* UIView+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Common.m"; sourceTree = "<group>"; };
+		553E28D321C9281500B46A20 /* NSString+Size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		553E28D421C9281500B46A20 /* NSString+Size.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,12 @@
 				553E289421C7746C00B46A20 /* AppDelegate.m */,
 				553E289621C7746C00B46A20 /* ViewController.h */,
 				553E289721C7746C00B46A20 /* ViewController.m */,
+				553E28CD21C9219F00B46A20 /* UIColor+Hex.h */,
+				553E28CE21C9219F00B46A20 /* UIColor+Hex.m */,
+				553E28D021C9229C00B46A20 /* UIView+Common.h */,
+				553E28D121C9229C00B46A20 /* UIView+Common.m */,
+				553E28D321C9281500B46A20 /* NSString+Size.h */,
+				553E28D421C9281500B46A20 /* NSString+Size.m */,
 				553E28B721C7766C00B46A20 /* SlideView.h */,
 				553E28B821C7766C00B46A20 /* SlideView.m */,
 				553E289921C7746C00B46A20 /* Main.storyboard */,
@@ -209,7 +224,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				553E289821C7746C00B46A20 /* ViewController.m in Sources */,
+				553E28D221C9229D00B46A20 /* UIView+Common.m in Sources */,
+				553E28CF21C9219F00B46A20 /* UIColor+Hex.m in Sources */,
 				553E28A321C7746F00B46A20 /* main.m in Sources */,
+				553E28D521C9281500B46A20 /* NSString+Size.m in Sources */,
 				553E28B921C7766C00B46A20 /* SlideView.m in Sources */,
 				553E289521C7746C00B46A20 /* AppDelegate.m in Sources */,
 			);

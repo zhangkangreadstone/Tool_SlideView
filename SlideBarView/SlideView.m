@@ -7,6 +7,8 @@
 //
 
 #import "SlideView.h"
+#import "UIView+Common.h"
+#import "NSString+Size.h"
 @implementation SlideItem
 
 
@@ -43,7 +45,8 @@ static const CGFloat kSepH = 2.0f;
     return self;
 }
 
-- (instancetype)initWithItems:(NSMutableArray *)items{
+
+- (instancetype)initWithItems:(NSMutableArray *)items type:(SlideStyle)type{
     if (!items.count) {
         return nil;
     }
@@ -52,14 +55,18 @@ static const CGFloat kSepH = 2.0f;
     if (items.count > 4) {
         w = kScreenW/3.5;
     }
-    _scrollView.contentSize = CGSizeMake(w*items.count, kSlideH);
     _scrollView.showsHorizontalScrollIndicator = NO;
-
+    CGFloat x = 0;
     for (NSInteger i = 0; i < items.count; i ++) {
         SlideItem *item = items[i];
+        if (type == SlideStyle_Suit) {
+            CGFloat width = [item.title calculateTitleWidthWithFont:[UIFont systemFontOfSize:17]]+60;
+            w = width;
+        }
+
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.selected = NO;
-        btn.frame = CGRectMake(w*i, 0, w, kSlideH-1-kSepH);
+        btn.frame = CGRectMake(x, 0, w, kSlideH-1-kSepH);
         btn.backgroundColor = [UIColor whiteColor];
         if (item.title.length) {
             [btn setTitle:item.title forState:UIControlStateNormal];
@@ -87,7 +94,9 @@ static const CGFloat kSepH = 2.0f;
         }
         [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView addSubview:btn];
+         x += w;
     }
+    _scrollView.contentSize = CGSizeMake(x, kSlideH);
     return self;
 }
 
@@ -112,7 +121,26 @@ static const CGFloat kSepH = 2.0f;
         UIView *sep = obj;
         sep.hidden = !midSepShow;
     }];
+}
 
+-(void)setMidSepH:(CGFloat)midSepH
+{
+    _midSepH = midSepH;
+    [self.midSeps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIView *sep = obj;
+        CGFloat y = sep.centerY;
+        sep.height = midSepH;
+        sep.centerY = y;
+    }];
+}
+
+-(void)setMidSepColor:(UIColor *)midSepColor
+{
+    _midSepColor = midSepColor;
+    [self.midSeps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIView *sep = obj;
+        sep.backgroundColor = midSepColor;
+    }];
 }
 
 -(void)setBottomSepColor:(UIColor *)bottomSepColor
