@@ -8,7 +8,7 @@
 
 #import "SlideView.h"
 #import "UIView+Common.h"
-#import "NSString+Size.h"
+#import "SliderHandler.h"
 @implementation SlideItem
 
 
@@ -60,7 +60,7 @@ static const CGFloat kSepH = 2.0f;
     for (NSInteger i = 0; i < items.count; i ++) {
         SlideItem *item = items[i];
         if (type == SlideStyle_Suit) {
-            CGFloat width = [item.title calculateTitleWidthWithFont:[UIFont systemFontOfSize:17]]+60;
+            CGFloat width = [SliderHandler calculateWidthForTitle:item.title withFont:[UIFont systemFontOfSize:17]] + 60;
             w = width;
         }
 

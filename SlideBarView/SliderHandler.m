@@ -1,14 +1,24 @@
 //
-//  UIColor+Hex.m
-//  ZKFrameWork
+//  SliderHandler.m
+//  SlideBarView
 //
-//  Created by 张康 on 2018/4/2.
-//  Copyright © 2018年 张康. All rights reserved.
+//  Created by LSH on 2018/12/19.
+//  Copyright © 2018 None. All rights reserved.
 //
 
-#import "UIColor+Hex.h"
+#import "SliderHandler.h"
 
-@implementation UIColor (Hex)
+@implementation SliderHandler
+
+//计算标题文字尺寸
++ (CGFloat)calculateWidthForTitle:(NSString *)title withFont:(UIFont *)font
+{
+    NSDictionary *dic = @{NSFontAttributeName: font};
+    CGSize size = [title boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
+    return size.width;
+}
+
+
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
     //删除字符串中的空格
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
@@ -28,7 +38,7 @@
     if ([cString length] != 6) {
         return [UIColor clearColor];
     }
-    
+
     // Separate into r, g, b substrings
     NSRange range;
     range.location = 0;
@@ -41,7 +51,7 @@
     //b
     range.location = 4;
     NSString *bString = [cString substringWithRange:range];
-    
+
     // Scan values
     unsigned int r, g, b;
     [[NSScanner scannerWithString:rString] scanHexInt:&r];
@@ -54,4 +64,5 @@
 + (UIColor *)colorWithHexString:(NSString *)color {
     return [self colorWithHexString:color alpha:1.0f];
 }
+
 @end

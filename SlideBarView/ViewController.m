@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 #import "SlideView.h"
-#import "UIColor+Hex.h"
-#define ThemeColor [UIColor colorWithHexString:@"#00C87F"]//App主色 主要用于顶部 以及特殊文字和折线
+#import "SliderHandler.h"
+#define ThemeColor [SliderHandler colorWithHexString:@"#00C87F"]//App主色 主要用于顶部 以及特殊文字和折线
 
 @interface ViewController ()
 
@@ -30,7 +30,7 @@
         [arr addObject:item];
     }
 
-    SlideView *slideView = [[SlideView alloc]initWithItems:arr type:SlideStyle_Suit];
+    SlideView *slideView = [[SlideView alloc]initWithItems:arr type:SlideStyle_Normal];
     slideView.bottomSepW = 50;
     slideView.bottomSepColor = ThemeColor;
     slideView.midSepH = 12;
